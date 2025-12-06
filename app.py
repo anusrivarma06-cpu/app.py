@@ -7,7 +7,7 @@ import os
 # 1️⃣ Load trained model safely
 # -------------------------------
 @st.cache_resource(show_spinner=True)
-def load_model(model_path=r"heart_failure_prediction_compressed.joblib"):
+def load_model(model_path="heart_failure_prediction_compressed.joblib"):
     # Check if model exists
     if not os.path.exists(model_path):
         st.error(f"Model file not found at {model_path}")
@@ -84,4 +84,5 @@ if st.button("Predict"):
     if prediction == 1:
         st.error(f"⚠ High Risk of Death (Probability: {prediction_proba:.2f})")
     else:
+
         st.success(f"✔ Low Risk of Death (Probability: {prediction_proba:.2f})")
